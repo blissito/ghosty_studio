@@ -644,56 +644,84 @@
             <div class="form-group">
               <label>Selecciona el modelo de IA</label>
               <select id="model-select">
-                <option value="gpt-4o-mini">GPT-4o Mini</option>
-                <option value="gpt-4.1-mini">GPT-4.1 Mini</option>
-                <option value="gpt-5-nano">GPT-5 Nano (ultra rápido)</option>
-                <option value="o4-mini">O4 Mini (razonamiento)</option>
+                <option value="">Cargando...</option>
               </select>
             </div>
             <button class="btn btn-primary" id="save-model-btn">Guardar Modelo</button>
           </div>
 
           <div class="card">
-            <h2>API Key de OpenAI</h2>
-            <div id="apikey-alert"></div>
-            <div class="form-group">
-              <label>Tu clave de API de OpenAI</label>
-              <div style="position: relative">
-                <input
-                  type="password"
-                  id="openai-api-key"
-                  placeholder="sk-..."
-                  style="font-family: monospace; padding-right: 3rem"
-                />
-                <button
-                  type="button"
-                  id="toggle-apikey-visibility"
-                  style="
-                    position: absolute;
-                    right: 0.5rem;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    background: transparent;
-                    border: none;
-                    color: #64748b;
-                    cursor: pointer;
-                    padding: 0.25rem;
-                  "
-                >
-                  <svg id="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                    <circle cx="12" cy="12" r="3"></circle>
-                  </svg>
-                </button>
+            <h2>API Keys</h2>
+            <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1rem;">
+              Configura las API keys de los proveedores. Los modelos se habilitan automaticamente segun las keys disponibles.
+            </p>
+
+            <!-- OpenAI -->
+            <div style="border: 1px solid #334155; border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <h3 style="font-size: 0.875rem; color: #f8fafc; margin: 0;">OpenAI</h3>
+                <span id="openai-status"></span>
               </div>
-              <p style="color: #64748b; font-size: 0.75rem; margin-top: 0.5rem">
-                Se guarda encriptada en la base de datos. Puedes obtener una en
-                <a href="https://platform.openai.com/api-keys" target="_blank" style="color: #3b82f6">platform.openai.com</a>
-              </p>
+              <div id="openai-alert"></div>
+              <div class="form-group" style="margin-bottom: 0.5rem;">
+                <div style="position: relative">
+                  <input
+                    type="password"
+                    id="openai-api-key"
+                    placeholder="sk-..."
+                    style="font-family: monospace; padding-right: 3rem"
+                  />
+                  <button
+                    type="button"
+                    class="toggle-visibility"
+                    data-target="openai-api-key"
+                    style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: #64748b; cursor: pointer; padding: 0.25rem;"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </button>
+                </div>
+                <p style="color: #64748b; font-size: 0.7rem; margin-top: 0.25rem">
+                  <a href="https://platform.openai.com/api-keys" target="_blank" style="color: #3b82f6">platform.openai.com</a>
+                </p>
+              </div>
+              <button class="btn btn-primary" id="save-openai-btn" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Guardar</button>
             </div>
-            <div style="display: flex; gap: 0.5rem; align-items: center">
-              <button class="btn btn-primary" id="save-apikey-btn">Guardar API Key</button>
-              <span id="apikey-status" style="font-size: 0.75rem; color: #64748b"></span>
+
+            <!-- Anthropic -->
+            <div style="border: 1px solid #334155; border-radius: 8px; padding: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <h3 style="font-size: 0.875rem; color: #f8fafc; margin: 0;">Anthropic</h3>
+                <span id="anthropic-status"></span>
+              </div>
+              <div id="anthropic-alert"></div>
+              <div class="form-group" style="margin-bottom: 0.5rem;">
+                <div style="position: relative">
+                  <input
+                    type="password"
+                    id="anthropic-api-key"
+                    placeholder="sk-ant-..."
+                    style="font-family: monospace; padding-right: 3rem"
+                  />
+                  <button
+                    type="button"
+                    class="toggle-visibility"
+                    data-target="anthropic-api-key"
+                    style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: #64748b; cursor: pointer; padding: 0.25rem;"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </button>
+                </div>
+                <p style="color: #64748b; font-size: 0.7rem; margin-top: 0.25rem">
+                  <a href="https://console.anthropic.com/settings/keys" target="_blank" style="color: #3b82f6">console.anthropic.com</a>
+                </p>
+              </div>
+              <button class="btn btn-primary" id="save-anthropic-btn" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Guardar</button>
             </div>
           </div>
 
@@ -1296,14 +1324,23 @@
             ? '<span class="badge badge-yellow">Desarrollo</span>'
             : '<span class="badge badge-green">Produccion</span>';
 
-          // API key status
-          updateApiKeyStatus(data.hasApiKey, data.apiKeySource);
-
-          // Model select
+          // Model select - render dinámicamente desde el API
           const modelSelect = document.getElementById("model-select");
+          if (data.availableModels && data.availableModels.length > 0) {
+            modelSelect.innerHTML = data.availableModels
+              .map(m => {
+                const disabled = !m.available ? 'disabled' : '';
+                const suffix = !m.available ? ' (Sin API Key)' : '';
+                return `<option value="${m.id}" ${disabled}>${m.name}${suffix}</option>`;
+              })
+              .join("");
+          }
           if (data.model) {
             modelSelect.value = data.model;
           }
+
+          // Update providers status
+          updateProvidersStatus(data.providers);
 
           // Sessions list
           const listEl = document.getElementById("sessions-list");
@@ -1396,75 +1433,126 @@
           }
         });
 
-      // Toggle API key visibility
-      document
-        .getElementById("toggle-apikey-visibility")
-        .addEventListener("click", () => {
-          const input = document.getElementById("openai-api-key");
-          const icon = document.getElementById("eye-icon");
+      // Toggle API key visibility (genérico para ambos providers)
+      document.querySelectorAll(".toggle-visibility").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const targetId = btn.dataset.target;
+          const input = document.getElementById(targetId);
+          const svg = btn.querySelector("svg");
           if (input.type === "password") {
             input.type = "text";
-            icon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>';
+            svg.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>';
           } else {
             input.type = "password";
-            icon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>';
+            svg.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>';
           }
         });
+      });
 
-      // Save API key
-      document
-        .getElementById("save-apikey-btn")
-        .addEventListener("click", async () => {
-          const input = document.getElementById("openai-api-key");
-          const apiKey = input.value.trim();
-          const alertEl = document.getElementById("apikey-alert");
+      // Update providers status
+      function updateProvidersStatus(providers) {
+        if (!providers) return;
 
-          if (!apiKey) {
-            alertEl.innerHTML = '<div class="alert alert-warning">Ingresa una API key</div>';
-            setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
-            return;
-          }
-
-          if (!apiKey.startsWith("sk-")) {
-            alertEl.innerHTML = '<div class="alert alert-warning">La API key debe comenzar con sk-</div>';
-            setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
-            return;
-          }
-
-          try {
-            const res = await fetch("/api/admin/config", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ openaiApiKey: apiKey }),
-            });
-
-            if (res.ok) {
-              alertEl.innerHTML = '<div class="alert alert-success">API Key guardada correctamente</div>';
-              input.value = "";
-              updateApiKeyStatus(true, "db");
-              setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
-            } else {
-              alertEl.innerHTML = '<div class="alert alert-warning">Error al guardar</div>';
-              setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
-            }
-          } catch (err) {
-            console.error("Error:", err);
-            alertEl.innerHTML = '<div class="alert alert-warning">Error de conexion</div>';
-            setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
-          }
-        });
-
-      // Update API key status indicator
-      function updateApiKeyStatus(hasKey, source) {
-        const statusEl = document.getElementById("apikey-status");
-        if (hasKey && source === "db") {
-          statusEl.innerHTML = '<span class="chip" style="background: #166534; color: #86efac;">sk-******* <span style="opacity: 0.7; font-size: 0.7rem;">DB</span></span>';
-        } else if (hasKey && source === "env") {
-          statusEl.innerHTML = '<span class="chip" style="background: #1e3a5f; border: 1px solid #3b82f6;">sk-******* <span style="opacity: 0.7; font-size: 0.7rem;">ENV</span></span>';
+        // OpenAI
+        const openaiEl = document.getElementById("openai-status");
+        if (providers.openai?.hasKey) {
+          const src = providers.openai.keySource === "env" ? "ENV" : "DB";
+          openaiEl.innerHTML = `<span class="chip" style="background: #166534; color: #86efac; font-size: 0.7rem;">Configurada (${src})</span>`;
         } else {
-          statusEl.innerHTML = '<span style="color: #ef4444;">● No configurada</span>';
+          openaiEl.innerHTML = '<span style="color: #ef4444; font-size: 0.75rem;">● No configurada</span>';
+        }
+
+        // Anthropic
+        const anthropicEl = document.getElementById("anthropic-status");
+        if (providers.anthropic?.hasKey) {
+          const src = providers.anthropic.keySource === "env" ? "ENV" : "DB";
+          anthropicEl.innerHTML = `<span class="chip" style="background: #166534; color: #86efac; font-size: 0.7rem;">Configurada (${src})</span>`;
+        } else {
+          anthropicEl.innerHTML = '<span style="color: #ef4444; font-size: 0.75rem;">● No configurada</span>';
         }
       }
+
+      // Save OpenAI API key
+      document.getElementById("save-openai-btn").addEventListener("click", async () => {
+        const input = document.getElementById("openai-api-key");
+        const apiKey = input.value.trim();
+        const alertEl = document.getElementById("openai-alert");
+
+        if (!apiKey) {
+          alertEl.innerHTML = '<div class="alert alert-warning">Ingresa una API key</div>';
+          setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
+          return;
+        }
+
+        if (!apiKey.startsWith("sk-")) {
+          alertEl.innerHTML = '<div class="alert alert-warning">La API key debe comenzar con sk-</div>';
+          setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
+          return;
+        }
+
+        try {
+          const res = await fetch("/api/admin/config", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ openaiApiKey: apiKey }),
+          });
+
+          if (res.ok) {
+            alertEl.innerHTML = '<div class="alert alert-success">API Key guardada</div>';
+            input.value = "";
+            loadStats(); // Reload to update models availability
+            setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
+          } else {
+            alertEl.innerHTML = '<div class="alert alert-warning">Error al guardar</div>';
+            setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
+          }
+        } catch (err) {
+          console.error("Error:", err);
+          alertEl.innerHTML = '<div class="alert alert-warning">Error de conexion</div>';
+          setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
+        }
+      });
+
+      // Save Anthropic API key
+      document.getElementById("save-anthropic-btn").addEventListener("click", async () => {
+        const input = document.getElementById("anthropic-api-key");
+        const apiKey = input.value.trim();
+        const alertEl = document.getElementById("anthropic-alert");
+
+        if (!apiKey) {
+          alertEl.innerHTML = '<div class="alert alert-warning">Ingresa una API key</div>';
+          setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
+          return;
+        }
+
+        if (!apiKey.startsWith("sk-ant-")) {
+          alertEl.innerHTML = '<div class="alert alert-warning">La API key debe comenzar con sk-ant-</div>';
+          setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
+          return;
+        }
+
+        try {
+          const res = await fetch("/api/admin/config", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ anthropicApiKey: apiKey }),
+          });
+
+          if (res.ok) {
+            alertEl.innerHTML = '<div class="alert alert-success">API Key guardada</div>';
+            input.value = "";
+            loadStats(); // Reload to update models availability
+            setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
+          } else {
+            alertEl.innerHTML = '<div class="alert alert-warning">Error al guardar</div>';
+            setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
+          }
+        } catch (err) {
+          console.error("Error:", err);
+          alertEl.innerHTML = '<div class="alert alert-warning">Error de conexion</div>';
+          setTimeout(() => { alertEl.innerHTML = ""; }, 3000);
+        }
+      });
 
       // Initial load
       loadStats();

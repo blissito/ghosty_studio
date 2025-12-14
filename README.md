@@ -279,6 +279,36 @@ El diseno prioriza la seguridad sin sacrificar usabilidad:
 
 ---
 
+## Independiente y Sostenible
+
+Ghosty es un proyecto **independiente y autofinanciado**. No tenemos inversionistas, no buscamos rondas de financiamiento, no respondemos a VCs.
+
+### Nuestro modelo de negocio
+
+Somos sostenibles gracias a las suscripciones de nuestros usuarios. Los ingresos se usan para:
+
+- Mantener y mejorar el proyecto
+- Pagar la infraestructura
+- Dedicar tiempo completo a Ghosty y al open source
+
+**No vendemos tus datos.** No monetizamos la información de tus usuarios. No insertamos trackers ni publicidad. Cuando usas Ghosty, tú eres el dueño absoluto de toda la información.
+
+### Por qué cobramos
+
+Como no ganamos dinero vendiendo datos ni mostrando anuncios, necesitamos cobrar por el servicio Cloud para mantener el proyecto vivo. Elegimos el modelo de suscripción en lugar del modelo de capitalismo de vigilancia.
+
+El tier self-hosted es y será siempre **gratis**. El código es MIT. Puedes desplegarlo donde quieras sin pagarnos un peso.
+
+### Por qué no buscamos inversión
+
+- Los inversionistas quieren retornos exponenciales. Nosotros queremos un producto útil.
+- El VC presiona por crecimiento a toda costa. Nosotros preferimos crecer de forma orgánica.
+- Las startups "exit" vendiendo a corporaciones. Nosotros queremos que Ghosty exista por décadas.
+
+Creemos que el software puede ser un oficio, no solo un vehículo de especulación.
+
+---
+
 ## Filosofia
 
 Este proyecto existe porque creemos que:

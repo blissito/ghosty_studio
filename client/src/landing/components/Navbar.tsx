@@ -30,6 +30,14 @@ export function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6">
+            <a
+              href="https://demo.ghosty.studio/preview"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-indigo-600 hover:text-indigo-700 transition-colors text-sm font-medium"
+            >
+              Demo
+            </a>
             <button
               onClick={() => scrollTo("features")}
               className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
@@ -101,6 +109,14 @@ export function Navbar() {
               <div className="px-4 py-2">
                 <GitHubStars repo={GITHUB_REPO} />
               </div>
+              <a
+                href="https://demo.ghosty.studio/preview"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-left px-4 py-2 text-indigo-600 font-medium hover:bg-indigo-50 rounded-lg"
+              >
+                Demo
+              </a>
               <button
                 onClick={() => scrollTo("features")}
                 className="text-left px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg"

@@ -1,5 +1,6 @@
 import "dotenv/config";
 import { createOpenAI } from "@ai-sdk/openai";
+import { createAnthropic } from "@ai-sdk/anthropic";
 import { ModelMessage, streamText, tool, stepCountIs } from "ai";
 import { z } from "zod";
 import { getConfig, getEnabledTools } from "./db/index.js";
@@ -11,16 +12,29 @@ IMPORTANTE: Cuando generes código, SIEMPRE usa la herramienta showArtifact para
 - El usuario verá el código en un panel dedicado a la derecha
 - Después de llamar showArtifact, explica brevemente qué hace el código`;
 
-// Función para obtener la API key (DB tiene prioridad sobre env)
+// Funciones para obtener API keys (DB tiene prioridad sobre env)
 export function getOpenAIApiKey(): string | undefined {
   const dbKey = getConfig("openai_api_key");
   return dbKey || process.env.OPENAI_API_KEY;
+}
+
+export function getAnthropicApiKey(): string | undefined {
+  const dbKey = getConfig("anthropic_api_key");
+  return dbKey || process.env.ANTHROPIC_API_KEY;
 }
 
 // Función para obtener el modelo configurado
 export function getModelId(): string {
   const dbModel = getConfig("model");
   return dbModel || "gpt-4o-mini";
+}
+
+// Detecta el provider según el modelo
+export function getProviderFromModel(modelId: string): "openai" | "anthropic" {
+  if (modelId.startsWith("claude")) {
+    return "anthropic";
+  }
+  return "openai";
 }
 
 // Convierte JSON Schema a Zod (simplificado)
@@ -75,15 +89,26 @@ function buildDynamicTools(): Record<string, any> {
 }
 
 export const chat = (messages: ModelMessage[]) => {
-  const apiKey = getOpenAIApiKey();
-
-  if (!apiKey) {
-    throw new Error("No se ha configurado la API key de OpenAI");
-  }
-
-  const openai = createOpenAI({ apiKey });
   const modelId = getModelId();
-  const model = openai(modelId);
+  const provider = getProviderFromModel(modelId);
+
+  let model;
+
+  if (provider === "anthropic") {
+    const apiKey = getAnthropicApiKey();
+    if (!apiKey) {
+      throw new Error("No se ha configurado la API key de Anthropic");
+    }
+    const anthropic = createAnthropic({ apiKey });
+    model = anthropic(modelId);
+  } else {
+    const apiKey = getOpenAIApiKey();
+    if (!apiKey) {
+      throw new Error("No se ha configurado la API key de OpenAI");
+    }
+    const openai = createOpenAI({ apiKey });
+    model = openai(modelId);
+  }
 
   // Tool fija + tools dinámicas de la DB
   const tools = {

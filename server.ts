@@ -3,7 +3,7 @@ import { serveStatic } from "@hono/node-server/serve-static";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { basicAuth } from "hono/basic-auth";
-import { chat } from "./index.js";
+import { chat, getOpenAIApiKey, getAnthropicApiKey } from "./index.js";
 import { convertToModelMessages } from "ai";
 import { readFileSync } from "fs";
 import { randomUUID } from "crypto";
@@ -76,6 +76,27 @@ function isOriginAllowed(origin: string | null): boolean {
 }
 const ADMIN_USER = process.env.ADMIN_USER || "admin";
 const ADMIN_PASS = process.env.ADMIN_PASS || "admin123";
+
+// Modelos disponibles (fuente de verdad única)
+// Económicos: incluidos en Pro/Enterprise
+// Premium: solo BYOK
+const AVAILABLE_MODELS = [
+  // OpenAI
+  { id: "gpt-4o-mini", name: "GPT-4o Mini", provider: "openai", tier: "economic" },
+  { id: "gpt-4.1-mini", name: "GPT-4.1 Mini", provider: "openai", tier: "economic" },
+  { id: "gpt-5-nano", name: "GPT-5 Nano", provider: "openai", tier: "economic" },
+  // Anthropic
+  { id: "claude-3-5-haiku-latest", name: "Claude 3.5 Haiku", provider: "anthropic", tier: "economic" },
+  { id: "claude-3-5-haiku-20241022", name: "Claude 3.5 Haiku (Oct 2024)", provider: "anthropic", tier: "economic" },
+] as const;
+
+const VALID_MODEL_IDS = AVAILABLE_MODELS.map(m => m.id);
+
+// Helper para obtener el provider de un modelo
+function getModelProvider(modelId: string): "openai" | "anthropic" | null {
+  const model = AVAILABLE_MODELS.find(m => m.id === modelId);
+  return model?.provider ?? null;
+}
 
 // Limpiar tokens expirados cada 10 minutos
 setInterval(() => {
@@ -185,15 +206,35 @@ app.get("/api/admin/stats", adminAuth, (c) => {
   // Configuración actual
   const config = getAllConfig();
 
+  // Verificar API keys disponibles
+  const hasOpenAIKey = !!getOpenAIApiKey();
+  const hasAnthropicKey = !!getAnthropicApiKey();
+
+  // Agregar disponibilidad a cada modelo basado en su provider
+  const modelsWithAvailability = AVAILABLE_MODELS.map(m => ({
+    ...m,
+    available: m.provider === "openai" ? hasOpenAIKey : hasAnthropicKey,
+  }));
+
   return c.json({
     activeSessions: sessions.length,
     sessions,
     allowedOrigins: getAllowedOrigins(),
     envOrigins: ENV_ALLOWED_ORIGINS,
     isDev,
-    hasApiKey: !!config.openai_api_key || !!process.env.OPENAI_API_KEY,
-    apiKeySource: config.openai_api_key ? "db" : (process.env.OPENAI_API_KEY ? "env" : null),
+    // API keys status por provider
+    providers: {
+      openai: {
+        hasKey: hasOpenAIKey,
+        keySource: config.openai_api_key ? "db" : (process.env.OPENAI_API_KEY ? "env" : null),
+      },
+      anthropic: {
+        hasKey: hasAnthropicKey,
+        keySource: config.anthropic_api_key ? "db" : (process.env.ANTHROPIC_API_KEY ? "env" : null),
+      },
+    },
     model: config.model || "gpt-4o-mini",
+    availableModels: modelsWithAvailability,
     config: {
       publicAccess: config.public_access === "true",
       allowedOrigins: config.allowed_origins || "",
@@ -236,9 +277,13 @@ app.post("/api/admin/config", adminAuth, async (c) => {
     console.log(`[Config] API Key de OpenAI actualizada`);
   }
 
+  if (typeof body.anthropicApiKey === "string" && body.anthropicApiKey.startsWith("sk-ant-")) {
+    setConfig("anthropic_api_key", body.anthropicApiKey);
+    console.log(`[Config] API Key de Anthropic actualizada`);
+  }
+
   if (typeof body.model === "string") {
-    const validModels = ["gpt-4o-mini", "gpt-4.1-mini", "gpt-5-nano", "o4-mini"];
-    if (validModels.includes(body.model)) {
+    if (VALID_MODEL_IDS.includes(body.model)) {
       setConfig("model", body.model);
       console.log(`[Config] Modelo actualizado: ${body.model}`);
     }
