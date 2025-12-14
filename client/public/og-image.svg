@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b"/>
+      <stop offset="50%" style="stop-color:#312e81"/>
+      <stop offset="100%" style="stop-color:#4c1d95"/>
+    </linearGradient>
+    <linearGradient id="ghostGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c4b5fd"/>
+      <stop offset="100%" style="stop-color:#a78bfa"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="200" fill="#8b5cf6" opacity="0.1"/>
+  <circle cx="1100" cy="530" r="250" fill="#6366f1" opacity="0.1"/>
+  <circle cx="900" cy="100" r="150" fill="#a78bfa" opacity="0.08"/>
+
+  <!-- Grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#8b5cf6" stroke-width="0.5" opacity="0.1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Ghost icon (larger) -->
+  <g transform="translate(120, 165) scale(3)">
+    <path d="M50 10
+             C25 10 15 30 15 50
+             L15 75
+             C15 78 17 80 20 80
+             L20 70 C20 67 23 65 26 65 C29 65 32 67 32 70 L32 80
+             L38 80 L38 68 C38 65 41 63 44 63 C47 63 50 65 50 68 L50 80
+             L56 80 L56 68 C56 65 59 63 62 63 C65 63 68 65 68 68 L68 80
+             L74 80 L74 70 C74 67 77 65 80 65 C83 65 86 67 86 70 L86 80
+             C89 80 91 78 91 75
+             L91 50
+             C91 30 81 10 50 10Z"
+          fill="url(#ghostGradient)"/>
+    <ellipse cx="38" cy="42" rx="8" ry="10" fill="white"/>
+    <ellipse cx="62" cy="42" rx="8" ry="10" fill="white"/>
+    <ellipse cx="40" cy="44" rx="4" ry="5" fill="#1e1b4b"/>
+    <ellipse cx="64" cy="44" rx="4" ry="5" fill="#1e1b4b"/>
+    <circle cx="42" cy="41" r="2" fill="white" opacity="0.8"/>
+    <circle cx="66" cy="41" r="2" fill="white" opacity="0.8"/>
+    <path d="M42 56 Q50 64 58 56" stroke="#1e1b4b" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <ellipse cx="30" cy="52" rx="5" ry="3" fill="#f0abfc" opacity="0.5"/>
+    <ellipse cx="70" cy="52" rx="5" ry="3" fill="#f0abfc" opacity="0.5"/>
+  </g>
+
+  <!-- Main text -->
+  <text x="480" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="bold" fill="white">
+    Ghosty Studio
+  </text>
+
+  <!-- Tagline -->
+  <text x="480" y="340" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#c4b5fd">
+    Chat con IA Open Source para tu Sitio Web
+  </text>
+
+  <!-- Features badges -->
+  <g transform="translate(480, 400)">
+    <rect x="0" y="0" width="140" height="40" rx="20" fill="#8b5cf6" opacity="0.3"/>
+    <text x="70" y="27" font-family="system-ui, sans-serif" font-size="16" fill="white" text-anchor="middle">Open Source</text>
+
+    <rect x="160" y="0" width="160" height="40" rx="20" fill="#8b5cf6" opacity="0.3"/>
+    <text x="240" y="27" font-family="system-ui, sans-serif" font-size="16" fill="white" text-anchor="middle">Multi-Proveedor</text>
+
+    <rect x="340" y="0" width="180" height="40" rx="20" fill="#8b5cf6" opacity="0.3"/>
+    <text x="430" y="27" font-family="system-ui, sans-serif" font-size="16" fill="white" text-anchor="middle">Auto-Hospedable</text>
+  </g>
+
+  <!-- URL -->
+  <text x="600" y="580" font-family="system-ui, sans-serif" font-size="24" fill="#a78bfa" text-anchor="middle">
+    ghosty.studio
+  </text>
+</svg>

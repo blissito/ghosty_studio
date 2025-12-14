@@ -1,10 +1,169 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>client</title>
+
+    <!-- Primary Meta Tags -->
+    <title>Ghosty Studio - Chat con IA Open Source para tu Sitio Web</title>
+    <meta name="title" content="Ghosty Studio - Chat con IA Open Source para tu Sitio Web" />
+    <meta name="description" content="Agrega un asistente de IA conversacional a tu sitio web en minutos. Open source, multi-proveedor (OpenAI, Anthropic), auto-hospedable. El chat widget más flexible del mercado." />
+    <meta name="keywords" content="chat ia, chatbot, widget chat, openai, anthropic, claude, gpt, asistente virtual, open source, saas, customer support, atención al cliente" />
+    <meta name="author" content="Ghosty Studio" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#7c3aed" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://ghosty.studio/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ghosty.studio/" />
+    <meta property="og:title" content="Ghosty Studio - Chat con IA Open Source" />
+    <meta property="og:description" content="Agrega un asistente de IA conversacional a tu sitio web en minutos. Open source, multi-proveedor, auto-hospedable." />
+    <meta property="og:image" content="https://ghosty.studio/og-image.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="Ghosty Studio" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://ghosty.studio/" />
+    <meta name="twitter:title" content="Ghosty Studio - Chat con IA Open Source" />
+    <meta name="twitter:description" content="Agrega un asistente de IA conversacional a tu sitio web en minutos. Open source, multi-proveedor, auto-hospedable." />
+    <meta name="twitter:image" content="https://ghosty.studio/og-image.svg" />
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Ghosty Studio",
+      "url": "https://ghosty.studio",
+      "logo": "https://ghosty.studio/favicon.svg",
+      "description": "Plataforma open source para agregar chat con IA a sitios web",
+      "sameAs": [
+        "https://github.com/ghosty-studio"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Ghosty Studio",
+      "operatingSystem": "Web",
+      "applicationCategory": "BusinessApplication",
+      "description": "Widget de chat con IA open source para sitios web. Soporta múltiples proveedores de IA (OpenAI, Anthropic) y es completamente auto-hospedable.",
+      "url": "https://ghosty.studio",
+      "softwareVersion": "1.0",
+      "releaseNotes": "Lanzamiento inicial con soporte multi-proveedor",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Starter",
+          "price": "490",
+          "priceCurrency": "MXN",
+          "priceValidUntil": "2025-12-31",
+          "description": "Plan básico con mensajes ilimitados usando tu propia API key (BYOK)"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro",
+          "price": "890",
+          "priceCurrency": "MXN",
+          "priceValidUntil": "2025-12-31",
+          "description": "5,000 mensajes incluidos al mes con modelos económicos"
+        },
+        {
+          "@type": "Offer",
+          "name": "Enterprise",
+          "price": "2490",
+          "priceCurrency": "MXN",
+          "priceValidUntil": "2025-12-31",
+          "description": "25,000 mensajes incluidos, soporte prioritario, webhooks y analytics avanzados"
+        }
+      ],
+      "featureList": [
+        "Chat con IA conversacional",
+        "Soporte multi-proveedor (OpenAI, Anthropic)",
+        "Open source y auto-hospedable",
+        "Widget embebible",
+        "Panel de administración",
+        "Analytics de uso",
+        "Herramientas personalizadas (function calling)"
+      ],
+      "screenshot": "https://ghosty.studio/og-image.svg",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "24",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: WebSite with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Ghosty Studio",
+      "url": "https://ghosty.studio",
+      "description": "Chat con IA open source para tu sitio web",
+      "inLanguage": "es-MX"
+    }
+    </script>
+
+    <!-- Structured Data: FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es Ghosty Studio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ghosty Studio es una plataforma open source que te permite agregar un chat con inteligencia artificial a tu sitio web. Soporta múltiples proveedores de IA como OpenAI y Anthropic, y puedes auto-hospedarlo en tu propia infraestructura."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es realmente open source?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, Ghosty Studio es 100% open source. Puedes ver el código, modificarlo y desplegarlo en tu propia infraestructura sin limitaciones. Ofrecemos planes de hosting para quienes prefieren no administrar servidores."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué modelos de IA soporta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ghosty Studio soporta modelos de OpenAI (GPT-4o-mini, GPT-4.1) y Anthropic (Claude 3.5 Haiku). Puedes usar tu propia API key (BYOK) o usar los mensajes incluidos en los planes Pro y Enterprise."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ofrecemos tres planes: Starter ($490 MXN/mes) con mensajes ilimitados usando tu API key, Pro ($890 MXN/mes) con 5,000 mensajes incluidos, y Enterprise ($2,490 MXN/mes) con 25,000 mensajes y funciones avanzadas."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

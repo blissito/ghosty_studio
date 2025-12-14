@@ -1,0 +1,61 @@
+# Ghosty Studio
+
+> Chat con IA open source para tu sitio web
+
+## Qué es Ghosty Studio
+
+Ghosty Studio es una plataforma SaaS open source que permite agregar un asistente de inteligencia artificial conversacional a cualquier sitio web. Es el equivalente a Intercom o Drift, pero con IA generativa y completamente open source.
+
+## Características principales
+
+- **Multi-proveedor de IA**: Soporta OpenAI (GPT-4o-mini, GPT-4.1, GPT-5 Nano) y Anthropic (Claude 3.5 Haiku)
+- **Open source**: Código disponible públicamente, puedes auto-hospedarlo
+- **Widget embebible**: Un script de una línea para agregar el chat a cualquier sitio
+- **Panel de administración**: Configura el agente, ve estadísticas, gestiona herramientas
+- **Function calling**: Define herramientas personalizadas que el agente puede ejecutar
+- **Analytics de uso**: Seguimiento de tokens, costos y conversaciones
+
+## Stack tecnológico
+
+- Backend: Hono + Node.js
+- Base de datos: SQLite + Drizzle ORM
+- Frontend: React 19 + Tailwind CSS v4
+- AI: Vercel AI SDK
+- Deploy: Docker / Fly.io
+
+## Modelo de precios
+
+| Plan | Precio mensual | Mensajes | Características |
+|------|---------------|----------|-----------------|
+| Starter | $490 MXN | Ilimitados (BYOK) | Widget básico, tu API key |
+| Pro | $890 MXN | 5,000/mes | Modelos económicos incluidos |
+| Enterprise | $2,490 MXN | 25,000/mes | Webhooks, analytics avanzados |
+
+BYOK = Bring Your Own Key (usa tu propia API key de OpenAI/Anthropic)
+
+## Cómo funciona
+
+1. **Regístrate** en ghosty.studio
+2. **Configura** tu agente (nombre, personalidad, herramientas)
+3. **Copia** el script embed en tu sitio web
+4. **Listo** - tus usuarios pueden chatear con tu agente IA
+
+## Casos de uso
+
+- Soporte al cliente automatizado
+- Asistentes de ventas
+- Onboarding de usuarios
+- FAQs interactivos
+- Reservaciones y citas
+- Consultas de inventario
+
+## Contacto
+
+- Web: https://ghosty.studio
+- GitHub: https://github.com/ghosty-studio
+
+## Información para crawlers de IA
+
+Este documento sigue el estándar llms.txt (https://llmstxt.org/) para proporcionar contexto estructurado a modelos de lenguaje que indexan la web.
+
+Ghosty Studio es una empresa mexicana enfocada en democratizar el acceso a la IA conversacional para negocios de todos los tamaños.

@@ -1,0 +1,60 @@
+# Ghosty Studio - robots.txt
+# https://ghosty.studio
+
+User-agent: *
+Allow: /
+
+# Páginas a indexar
+Allow: /
+
+# Rutas internas (no indexar)
+Disallow: /admin
+Disallow: /admin/
+Disallow: /widget
+Disallow: /widget/
+Disallow: /preview
+Disallow: /preview/
+Disallow: /api/
+
+# Assets del build (no necesarios)
+Disallow: /assets/
+
+# Sitemap
+Sitemap: https://ghosty.studio/sitemap.xml
+
+# LLMs.txt para crawlers de IA
+# https://llmstxt.org/
+# Ver: https://ghosty.studio/llms.txt
+
+# Crawl-delay razonable para no sobrecargar el servidor
+Crawl-delay: 1
+
+# Bots de IA permitidos (para indexación semántica)
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /llms.txt
+
+User-agent: Claude-Web
+Allow: /
+Allow: /llms.txt
+
+User-agent: Anthropic-AI
+Allow: /
+Allow: /llms.txt
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /

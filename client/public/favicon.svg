@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="ghostGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#c4b5fd;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Glow effect -->
+  <ellipse cx="50" cy="85" rx="25" ry="8" fill="url(#glowGradient)" opacity="0.5"/>
+
+  <!-- Ghost body -->
+  <path d="M50 10
+           C25 10 15 30 15 50
+           L15 75
+           C15 78 17 80 20 80
+           L20 70 C20 67 23 65 26 65 C29 65 32 67 32 70 L32 80
+           L38 80 L38 68 C38 65 41 63 44 63 C47 63 50 65 50 68 L50 80
+           L56 80 L56 68 C56 65 59 63 62 63 C65 63 68 65 68 68 L68 80
+           L74 80 L74 70 C74 67 77 65 80 65 C83 65 86 67 86 70 L86 80
+           C89 80 91 78 91 75
+           L91 50
+           C91 30 81 10 50 10Z"
+        fill="url(#ghostGradient)"/>
+
+  <!-- Eyes -->
+  <ellipse cx="38" cy="42" rx="8" ry="10" fill="white"/>
+  <ellipse cx="62" cy="42" rx="8" ry="10" fill="white"/>
+
+  <!-- Pupils -->
+  <ellipse cx="40" cy="44" rx="4" ry="5" fill="#1e1b4b"/>
+  <ellipse cx="64" cy="44" rx="4" ry="5" fill="#1e1b4b"/>
+
+  <!-- Eye shine -->
+  <circle cx="42" cy="41" r="2" fill="white" opacity="0.8"/>
+  <circle cx="66" cy="41" r="2" fill="white" opacity="0.8"/>
+
+  <!-- Friendly smile -->
+  <path d="M42 56 Q50 64 58 56" stroke="#1e1b4b" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Blush -->
+  <ellipse cx="30" cy="52" rx="5" ry="3" fill="#f0abfc" opacity="0.5"/>
+  <ellipse cx="70" cy="52" rx="5" ry="3" fill="#f0abfc" opacity="0.5"/>
+</svg>
