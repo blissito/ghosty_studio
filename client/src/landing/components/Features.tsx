@@ -1,123 +1,63 @@
 const features = [
   {
     icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-        />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    title: "1 línea de código",
-    description:
-      "Copia y pega un script en tu sitio. Sin configuración compleja ni dependencias.",
+    title: "Disponible 24/7",
+    description: "Tu asistente nunca duerme. Atiende clientes de madrugada, fines de semana y días festivos.",
+    highlight: "Nunca pierdas una venta",
   },
   {
     icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-        />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    title: "Sonnet 4.5, GPT-5 y más",
-    description:
-      "Accede a los modelos más avanzados de OpenAI y Anthropic. Respuestas precisas y naturales.",
+    title: "Respuestas instantáneas",
+    description: "Sin tiempos de espera. Tus clientes obtienen respuestas en segundos, no en horas.",
+    highlight: "Clientes más satisfechos",
   },
   {
     icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-        />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
       </svg>
     ),
-    title: "Personalizable",
-    description:
-      "Define el comportamiento con system prompts. Tu asistente, tus reglas.",
+    title: "Agenda citas automáticamente",
+    description: "Conecta tu calendario. El asistente agenda, confirma y envía recordatorios.",
+    highlight: "Menos no-shows",
   },
   {
     icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
-        />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     ),
-    title: "Webhooks y tools",
-    description:
-      "Conecta tu API. El asistente puede hacer reservas, consultas y más.",
+    title: "Respuestas precisas",
+    description: "Entrénalo con tu información. Solo responde lo que tú quieres, sin inventar.",
+    highlight: "Confianza total",
   },
   {
     icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
-        />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    title: "Compatible con MCP",
-    description:
-      "Conecta cualquier servidor MCP. Tu asistente accede a bases de datos, APIs y herramientas externas.",
+    title: "Ahorra en personal",
+    description: "Un asistente IA cuesta una fracción de un empleado y atiende a todos simultáneamente.",
+    highlight: "ROI inmediato",
   },
   {
     icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-        />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
       </svg>
     ),
-    title: "Control por dominio",
-    description:
-      "Restringe qué dominios pueden usar tu widget. Seguridad enterprise sin complicaciones.",
+    title: "Integración en 5 minutos",
+    description: "Copia y pega una línea de código. Sin desarrolladores, sin complicaciones.",
+    highlight: "Cero fricción técnica",
   },
 ];
 
@@ -127,12 +67,18 @@ export function Features() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Beneficios para tu negocio
+          </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Todo lo que necesitas
+            Automatiza la atención al cliente
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Un widget completo con todas las funcionalidades que esperarías de
-            una solución enterprise, pero simple de usar.
+            Reduce costos, aumenta ventas y mejora la satisfacción de tus clientes
+            con un asistente que trabaja sin descanso.
           </p>
         </div>
 
@@ -149,9 +95,28 @@ export function Features() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 {feature.title}
               </h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <p className="text-gray-600 mb-3">{feature.description}</p>
+              <span className="inline-block text-sm font-medium text-indigo-600">
+                {feature.highlight}
+              </span>
             </div>
           ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-16 text-center">
+          <p className="text-gray-500 mb-4">
+            Potenciado por los modelos de IA más avanzados
+          </p>
+          <div className="flex flex-wrap justify-center gap-6 items-center text-gray-400">
+            <span className="font-semibold">OpenAI GPT-4</span>
+            <span className="text-gray-300">•</span>
+            <span className="font-semibold">Claude 3.5</span>
+            <span className="text-gray-300">•</span>
+            <span className="font-semibold">GPT-4o-mini</span>
+            <span className="text-gray-300">•</span>
+            <span className="font-semibold">Y más...</span>
+          </div>
         </div>
       </div>
     </section>

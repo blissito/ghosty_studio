@@ -1,7 +1,4 @@
 import { useState } from "react";
-import { GitHubStars } from "./GitHubStars";
-
-const GITHUB_REPO = "blissito/ghosty_studio";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,33 +19,21 @@ export function Navbar() {
               alt="Ghosty"
               className="h-8"
             />
-            {/* GitHub Stars Badge */}
-            <div className="hidden sm:block">
-              <GitHubStars repo={GITHUB_REPO} />
-            </div>
           </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6">
-            <a
-              href="https://demo.ghosty.studio/preview"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-indigo-600 hover:text-indigo-700 transition-colors text-sm font-medium"
-            >
-              Demo
-            </a>
             <button
               onClick={() => scrollTo("features")}
               className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
             >
-              Features
+              Beneficios
             </button>
             <button
-              onClick={() => scrollTo("open-source")}
+              onClick={() => scrollTo("demo")}
               className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
             >
-              Open Source
+              Demo
             </button>
             <button
               onClick={() => scrollTo("pricing")}
@@ -56,34 +41,24 @@ export function Navbar() {
             >
               Precios
             </button>
-            <a
-              href={`https://github.com/${GITHUB_REPO}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => scrollTo("how-it-works")}
               className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
             >
-              Docs
-            </a>
+              Cómo funciona
+            </button>
           </div>
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href={`https://github.com/${GITHUB_REPO}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-gray-900 transition-colors px-3 py-2 text-sm"
-            >
-              Self-host
-            </a>
             <button className="text-gray-600 hover:text-gray-900 transition-colors px-3 py-2 text-sm">
-              Login
+              Iniciar sesión
             </button>
             <button
               onClick={() => scrollTo("pricing")}
               className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
             >
-              Empezar gratis
+              Comenzar gratis
             </button>
           </div>
 
@@ -106,28 +81,17 @@ export function Navbar() {
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-100">
             <div className="flex flex-col gap-2">
-              <div className="px-4 py-2">
-                <GitHubStars repo={GITHUB_REPO} />
-              </div>
-              <a
-                href="https://demo.ghosty.studio/preview"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-left px-4 py-2 text-indigo-600 font-medium hover:bg-indigo-50 rounded-lg"
-              >
-                Demo
-              </a>
               <button
                 onClick={() => scrollTo("features")}
                 className="text-left px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg"
               >
-                Features
+                Beneficios
               </button>
               <button
-                onClick={() => scrollTo("open-source")}
+                onClick={() => scrollTo("demo")}
                 className="text-left px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg"
               >
-                Open Source
+                Demo
               </button>
               <button
                 onClick={() => scrollTo("pricing")}
@@ -135,23 +99,21 @@ export function Navbar() {
               >
                 Precios
               </button>
-              <hr className="my-2" />
-              <a
-                href={`https://github.com/${GITHUB_REPO}`}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => scrollTo("how-it-works")}
                 className="text-left px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg"
               >
-                Self-host
-              </a>
+                Cómo funciona
+              </button>
+              <hr className="my-2" />
               <button className="text-left px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg">
-                Login
+                Iniciar sesión
               </button>
               <button
                 onClick={() => scrollTo("pricing")}
                 className="mx-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-colors font-medium text-center"
               >
-                Empezar gratis
+                Comenzar gratis
               </button>
             </div>
           </div>
