@@ -1,0 +1,10 @@
+export { LandingPage } from "./LandingPage";
+export { Navbar } from "./components/Navbar";
+export { Hero } from "./components/Hero";
+export { Features } from "./components/Features";
+export { HowItWorks } from "./components/HowItWorks";
+export { OpenSource } from "./components/OpenSource";
+export { Pricing } from "./components/Pricing";
+export { Community } from "./components/Community";
+export { Footer } from "./components/Footer";
+export { GitHubStars, GitHubStarsButton } from "./components/GitHubStars";
